@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        body {
+            background-image:url('./image/sailor\ moon\ but\ .gif');
+            background-repeat: no-repeat;
+        background-size: 100% 100vh;
+        
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-wrap: wrap;
+        overflow: hidden;
+        }
+    
+    .cont{
+        position:fixed;
+        left: 0;
+        margin: 10px 0 0 280px;
+        top: 0;
+    }
+        .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        
+        
+            }
+
+        .grid-item {
+    border-radius: 30px;
+    background: rgba(243, 116, 194, 0.3);
+    box-shadow: 4px 7px 7px 0px rgb(85, 14, 75);
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 400ms;
+    user-select: none;
+    
+                    }
+
+        .grid-item img {
+            
+            width: 100%;
+            height: auto;
+            }
+            .grid-item img:hover{
+            filter: grayscale(1);
+            transform: scale(1.03);
+            
+            } 
+            .MyClockDisplay{
+                position: fixed;
+                top: 59%;
+                left: 81%;
+                height: 60px;
+                width: 150px;
+                background-color: #5F4550;
+                transform: rotate(10deg) ;
+                
+                
+            }
+
+            #clock {
+                 text-align: center;
+                margin: 0;
+                color: #F19CBB;
+                font-size: 30px;
+                 user-select: none;
+                 font-family: "Poppins", sans-serif;
+            }
+
+
+      .box #albumCoverArt { 
+        
+        
+        border-radius: 30px ;
+        background-color: rgba(0, 0, 0, 0.6);
+        box-shadow: 4px 7px 7px 0px rgb(34, 30, 30);
+        width: 150px;
+        height: 150px;
+         margin: 20px;
+         justify-content: right;
+            align-items: center;
+                        }
+        canvas {
+            
+            border-radius: 30px ;
+            background-color: rgba(0, 0, 0, 0.6);
+            box-shadow: 4px 7px 7px 0px rgb(34, 30, 30);
+            margin: 20px;
+            width: 300px;
+            height: 150px;
+            
+               
+      }   
+                
+        .container  {
+                
+                border-radius: 30px ;
+                background: rgba(243, 116, 194, 0.3);
+                box-shadow: 4px 7px 7px 0px rgb(85, 14, 75);
+                width: 550px;
+                height: 200px;
+                overflow: hidden;
+                display: flex;
+                
+                
+                margin: 380px 0 0 10px;
+                
+
+                    }
+                
+                .textBox   { 
+                position: absolute;
+                width: 300px;
+                height: 90px;
+                margin: 20px;
+                overflow: hidden;
+                
+                
+            }
+            
+                #trackTitle {
+                    
+                    margin: 15px; 
+                    text-shadow: 2px 2px 5px;
+                    text-align: center;
+                    color: rgb(230, 253, 191);
+                    font-size: 18px; margin-bottom: 20px; font-family: "Poppins", sans-serif;}
+                #artist {
+                    text-shadow: 2px 2px 5px;
+                    margin: 15px;
+                      
+                    color: rgb(63, 238, 165);
+                    font-size: 20px; font-family: "Poppins", sans-serif; 
+                    text-align: center;}
+                    
+    .weather-all{
+        position: fixed;
+        width: 200px;
+        height: 300px;
+        background: rgba(243, 116, 194, 0.3);
+        box-shadow: 4px 7px 7px 0px rgb(85, 14, 75);
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 16px;
+        padding: 20px;
+        color: #fff;
+        top: 0;
+        left: 0;
+        margin: 20px;
+       
+    }
+    
+    .weather-box{
+        
+        text-align: center;
+        margin: 10px;
+    }
+    .weather-box img{
+        width: 60%;
+    }
+    .weather-box .temperature{
+        position: relative;
+        font-size: 64px;
+        line-height: 1;
+        font-weight: 700;
+        margin: 20px 0 6px -30px;
+        font-family: "Poppins", sans-serif;
+    }
+    .weather-box .temperature span{
+        position: absolute;
+        font-size: 24px;
+        margin-left:4px;
+        
+    }
+
+    .weather-box .description{
+        margin: 0;
+        font-size: 22px;
+        font-weight: 500;
+        text-transform: capitalize;
+        font-family: "Poppins", sans-serif;
+
+    }
+    .weather-box .city{
+        margin: 10px;
+        font-size: 22px;
+        font-weight: 500;
+        text-transform: capitalize;
+        font-family: "Poppins", sans-serif; 
+    }                    
+                    
+        </style>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="cont">
+        <div class="grid">
+            <div class="grid-item">
+                <img src="./image/asss.gif"  onclick="playSound()">
+            </div>
+            <div class="grid-item">
+                <img src="./image/El Bosque.gif" >
+            </div>
+            <div class="grid-item">
+                <img src="./image/Love Yourself Hug Sticker by Pusheen for iOS & Android _ GIPHY.gif" >
+            </div>
+            <div class="grid-item">
+                <img id="toggleFormat" src="./image/dddd.gif" >
+            </div>
+            
+        </div>
+         </div>
+            <div class="MyClockDisplay">
+                
+                <p id="clock"></p>
+                
+            </div>
+            
+            <div class="container">
+                
+                <canvas id='canvas'></canvas>
+                
+                <div id="qwe" class="textBox">
+                    <div id="artist" class="text"></div>
+                    <div id="trackTitle" class="text"></div>
+                </div>
+                <div class="box">
+                        <img id="albumCoverArt" src="./image/asss.gif"/>
+                    
+                </div>
+            </div>
+            <div class="weather-all">
+                <div class="weather-box">
+                    <div class="box">
+                        <div class="info-weather">
+                            <div class="weather">
+                                <p class="city">City</p>
+                                <img src="/image/cloud.png" >
+                                <p class="temperature">0<span>°C</span></p>
+                                <p class="description">Broken Clouds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        </section>
+    </main>
+    <script>
+        
+        var sounds = [
+    './song/animals-cat-blue-meow.mp3',
+    './song/cat-meow_fyvriu4d.mp3',
+    './song/kot-myaukaet.mp3',
+    './song/udividelnyi-myau-fgg.mp3',
+    
+        ];
+
+        function playSound() {
+    var randomIndex = Math.floor(Math.random() * sounds.length); // Получаем случайный индекс из массива
+    var audio = new Audio(sounds[randomIndex]); // Создаем новый экземпляр Audio с выбранным звуком
+    audio.volume = aud; // Устанавливаем громкость
+    audio.play(); // Воспроизводим звук
+    }
+    
+    // Звук
+
+    // Время
+    var ampm = true; // true for 12-hour format, false for 24-hour format
+
+    function displayTime(){
+    var d = new Date();
+    var hour = d.getHours();
+    var min = d.getMinutes();
+    var ampmStr = hour >= 12 ? 'PM' : 'AM';
+
+    if (ampm) {
+        hour = hour % 12;
+        hour = hour ? hour : 12; // the hour '0' should be '12'
+    }
+
+    min = min < 10 ? '0'+min : min;
+
+    document.getElementById("clock").innerHTML = hour + ":" + min + " " + (ampm ? ampmStr : '');
+}
+
+document.getElementById("toggleFormat").addEventListener("click", function(){
+    ampm = !ampm;
+});
+
+setInterval(displayTime, 1000);
+// Время
+
+// Погода
+
+const container = document.querySelector('.weather-all');
+const weatherBox = document.querySelector('.weather-box');
+const cityElement = document.querySelector('.weather-box .city');
+let city = '';
+let lang = '';
+var apikey = '';
+
+function updateWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&&lang=${lang}&appid=${apikey}`
+    ).then(response => response.json()).then(json => {
+        const image = document.querySelector('.weather-box img');
+        const temperature = document.querySelector('.weather-box .temperature');
+        const description = document.querySelector('.weather-box .description');
+        
+        let currentTime = new Date().getHours();
+        let isDayTime = (currentTime > 6 && currentTime < 20); // 6:00 AM - 8:00 PM
+
+        switch (json.weather[0].main) {
+            case 'Clear':
+                image.src = isDayTime ? 'image/clear.png' : 'image/night.png';
+                break;
+
+            case 'Rain':
+                image.src = 'image/rain.png';
+                break;
+
+            case 'Snow':
+                image.src = 'image/snow.png';
+                break;
+
+            case 'Clouds':
+                image.src = isDayTime ? 'image/cloud.png' : 'image/cloud-night.png';
+                break;
+
+            case 'Mist':
+                image.src = 'image/mist.png';
+                break;
+
+            case 'Haze':
+                image.src = 'image/mist.png';
+                break;
+
+            default:
+                image.src = isDayTime ? 'image/cloud.png' : 'image/cloud-night.png';
+        }
+
+        temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
+        description.innerHTML = `${json.weather[0].description}`;
+        cityElement.innerHTML = `${json.name}`;
+    });
+}
+
+
+// Обновляем погоду каждые 1 минуту
+setInterval(updateWeather, 30 * 1000);
+// Погода
+
+// эквализация 
+    var tick = 0;
+
+if(!window.wallpaperRegisterAudioListener) {
+	var wallpaperAudioInterval = null;
+	window.wallpaperRegisterAudioListener = function( callback ) {
+		if( wallpaperAudioInterval ) {
+			// clear the older interval 
+			clearInterval( _wallpaperAudioInterval );
+			wallpaperAudioInterval = null;
+		}
+
+		// set new interval
+		let data = [ ];
+		wallpaperAudioInterval = setInterval( function() {
+            tick += 0.050;
+            if(tick > 2 * Math.PI) tick -= 2 * Math.PI;
+			for(let i = 0; i < 64; i++ ){
+                let v = Math.abs(Math.sin(tick + i*81.5));
+				data[ i ] = v;
+				data[ i+64 ]= v;
+			}
+			callback( data );
+		}, 33 ); // wallpaper engine gives audio data back at about 30fps, so 33ms it is
+	};
+}
+
+var glob = {
+    color1: 'pink',
+    
+    scale: 1.5,
+    offset: 20,
+    bloom: true,
+    bloomRadius: 10,
+    filter: true,
+    normalize: true,
+    advanceSmooth: false,
+    
+    bgpixelated: false,
+    fpsInterval: 60, // I can add a thing to "duplicate" instead of stretch the audio, i.e. up samples, iterate by two, something like that
+}
+
+window.wallpaperPropertyListener = {
+    applyUserProperties: function(properties) {
+        if(properties.audio) aud = (properties.audio.value);
+        if(properties.apikey) apikey = (properties.apikey.value);
+        if(properties.lang) lang = (properties.lang.value);
+        if(properties.city) city = (properties.city.value);
+        if(properties.color1) glob.color1 = parseColor(properties.color1.value);
+        if(properties.color2) glob.color2 = parseColor(properties.color2.value);
+        if(properties.scale) {
+            glob.scale = properties.scale.value;
+            pointScale = canvas.height / glob.scale;
+        }
+        if(properties.offset) glob.offset = properties.offset.value;
+        if(properties.bloom) glob.bloom = properties.bloom.value;
+        if(properties.bloomRadius) glob.bloomRadius = properties.bloomRadius.value;
+        if(properties.filter) glob.filter = properties.filter.value;
+        if(properties.normalize) glob.normalize = properties.normalize.value;
+        if(properties.advanceSmooth) glob.advanceSmooth = properties.advanceSmooth.value;
+        if(properties.bgcolor) {
+            glob.bgcolor = parseColor(properties.bgcolor.value);
+            let solidEl = document.getElementById('bgcolor');
+            solidEl.style.backgroundColor = glob.bgcolor;
+        }
+        
+        
+
+        if(properties.bgpixelated) {
+            glob.bgpixelated = properties.bgpixelated.value;
+            
+            imageEl.style.imageRendering = glob.bgpixelated ? 'pixelated' : '';
+        }
+
+        first = true;
+    },
+    applyGeneralProperties: function(properties) {
+        if(properties.fps) glob.fpsInterval = 1000 / properties.fps;
+    }
+};
+
+
+function parseColor(value) {
+    let c = value.split(' ');
+    c = c.map(function(a) { return Math.ceil(+a * 255); });
+    return 'rgb(' + c.toString() + ')';
+}
+
+
+/** @type {HTMLCanvasElement} */
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+canvas.width = document.body.clientWidth;
+canvas.height = document.body.clientHeight;
+
+var pointWidth, pointScale;
+function calcPointVars() {
+    pointWidth = canvas.width / 128;
+    pointScale = canvas.height / glob.scale;
+}
+calcPointVars();
+
+window.addEventListener('resize', function() {
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
+    calcPointVars();
+}, false);
+
+var gData;
+if(window.wallpaperRegisterAudioListener) {
+    window.wallpaperRegisterAudioListener(function(data) { // @todo: fix so less cpu usage :T
+
+        if(glob.normalize) calibratePeakValue(data);
+        //if(glob.normalize) oldCalPeak(data);
+        if(glob.filter) correctPinkNoise(data);
+        if(glob.advanceSmooth) interpolate(data);
+        else motionblur(data);
+
+        if(gData == null) {
+            gData = data;
+            then = Date.now();
+            render();
+        } else
+            gData = data;
+    });
+}
+
+var nothing = false, first = true;
+
+var now, then, elapsed;
+function render() {
+    requestAnimationFrame(render);
+
+    now = Date.now();
+    elapsed = now - then;
+    if(elapsed < glob.fpsInterval) return;
+    if(gData == null) return;
+    if(nothing == true && first != true) return;
+    first = false;
+
+    then = now - elapsed % glob.fpsInterval;
+
+    // clear
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.shadowBlur = 0;
+    ctx.shadowColor = 'black';
+    ctx.imageSmoothingEnabled = false;
+
+    //render
+
+    if(glob.imageData)
+        ctx.drawImage(glob.imageData, 0, 0, canvas.width, canvas.height)
+
+    drawStereoLine(ctx, canvas.height * (1 - glob.offset * 0.01), pointWidth, pointScale, gData);
+    renderLine(ctx, glob.color2);
+
+    drawStereoLine(ctx, canvas.height * (1 - glob.offset * 0.01), pointWidth, -pointScale, gData);
+    renderLine(ctx, glob.color1);
+}
+
+function drawStereoLine(ctx, center, width, scale, data, idx) {
+    let i, x = 0, y = center + scale*data[0]*0.33;   
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    for(i = 0; i < 63; i++) {
+        x += width;
+        y = center + scale * data[i];
+        ctx.lineTo(x, y);
+    }
+
+    x += width;
+    y = center + scale * (data[63] + data[127]) * 0.5;
+    ctx.lineTo(x, y);
+    x += width;
+    y = center + scale * data[126];
+    ctx.lineTo(x, y);
+
+    x = 128*width, y = center + scale*data[64]*0.33;
+    ctx.moveTo(x, y);
+    for(i = 64;i < 127; i++) {
+        x -= width;
+        y = center + scale * data[i];
+        ctx.lineTo(x, y);
+    }
+}
+
+function renderLine(ctx, color) {
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = color;
+    if(glob.bloom) {
+        ctx.shadowBlur = glob.bloomRadius;
+        ctx.shadowColor = color;
+    }
+    ctx.stroke();
+}
+
+// I have left the results as I measured them, but if you use them you might want to pay attention to the first value. 
+// It represents the correction for the 26hz. For some reason it feels like that value should be lower as it usually has very low values. 
+// Just something to be aware of. 
+var pinkNoise = [   1.1760367470305, 0.85207379418243, 0.68842437227852, 0.63767902570829, 0.5452348949654,
+                    0.50723325864167, 0.4677726234682, 0.44204182748767, 0.41956517802157, 0.41517375040002,
+                    0.41312118577934, 0.40618363960446, 0.39913707474975, 0.38207008614508, 0.38329789106488,
+                    0.37472136606245, 0.36586428412968, 0.37603017335105, 0.39762590761573,	0.39391828858591,
+                    0.37930603769622, 0.39433365764563, 0.38511504613859, 0.39082579241834, 0.3811852720504,
+                    0.40231453727161, 0.40244151133175, 0.39965366884521, 0.39761103827545, 0.51136400422212,
+                    0.66151212038954, 0.66312205226679, 0.7416276690995, 0.74614971301133, 0.84797007577483,
+                    0.8573583910469, 0.96382997811663, 0.99819377577185, 1.0628692615814, 1.1059083969751,
+                    1.1819808497335, 1.257092297208, 1.3226521464753, 1.3735992532905, 1.4953223705889,
+                    1.5310064942373, 1.6193923584808, 1.7094805527135, 1.7706604552218, 1.8491987941428,
+                    1.9238418849406, 2.0141596921333, 2.0786429508827, 2.1575522518646, 2.2196355526005,
+                    2.2660112509705, 2.320762171749, 2.3574848254513, 2.3986127976537, 2.4043566176474,
+                    2.4280476777842, 2.3917477397336, 2.4032522546622, 2.3614180150678];
+
+function correctPinkNoise(data) {
+    for( var i = 0; i < 64; i++ )
+	{
+		data[ i ] /= pinkNoise[ i ];
+		data[ i+64 ] /= pinkNoise[ i ];
+	}
+	return data;
+}
+
+var historyMax = 2;
+var recentWeight = 3;
+
+//var rawMax = 0;
+//var peakedMax = 0;
+
+var peakHistory = [];
+function calibratePeakValue(data) {
+    let max = 0;
+
+    for(let i = 0; i < 128; i++)
+        if(data[i] > max) max = data[i];
+    if(max > 1)
+        for(let i = 0; i < 128; i++)
+            data[i] /= max;
+    //if(max > rawMax) rawMax = max;
+    peakHistory.push(Math.min(max, 1));
+    if(peakHistory.length > historyMax * 8)
+        peakHistory = peakHistory.slice(peakHistory.length - historyMax * 8, historyMax * 8);
+
+    // @todo: fix so quiet songs look quiet and loud songs look loud
+    let peakValue = 0;
+    for(let i = 0; i < peakHistory.length; i++)
+        peakValue += peakHistory[i];
+    peakValue /= peakHistory.length;
+
+    nothing = Math.abs(peakValue) <= 0.001;
+
+    //let calibratedMax = 0;
+    for(let i = 0; i < 128; i++) {
+        data[i] /= peakValue * 0.92 + 0.08;
+        //if(data[i] > calibratedMax) calibratedMax = data[i];
+    }
+    //if(calibratedMax > peakedMax) peakedMax = calibratedMax;
+
+    //document.getElementById('debug1').textContent = "rawMax: " + rawMax + ", peakedMax:" + peakedMax;
+    //document.getElementById('debug2').textContent = "calibratedMax: " + calibratedMax + ", peakValue:" + (peakValue);
+}
+
+var dataHistory = [];
+function dataInterpAverage(i) {
+    let v = 0;
+    for(let j = 0; j < dataHistory.length; j++) {
+        v += dataHistory[j][i] * (j == 0 ? recentWeight : 1);
+    }
+    return v / (recentWeight + dataHistory.length - 1);
+}
+function interpolate(data) {
+    let cdata = [];
+    for(let i = 0; i < 128; i++)
+        cdata[i] = data[i];
+    dataHistory.push(cdata);
+    if(dataHistory.length > historyMax)
+        dataHistory = dataHistory.slice(dataHistory.length - historyMax, historyMax);
+    for(let i = 0; i < 128; i++)
+        data[i] = dataInterpAverage(i);
+}
+
+var prevVal;
+function motionblur(data) {
+    let oldPrevVal = prevVal;
+    prevVal = data;
+    if(oldPrevVal) {
+        for(let i = 0; i < 128; i++)
+            data[i] = oldPrevVal[i] * 0.33 + data[i] * 0.67;
+    }
+}
+// эквализация
+
+
+
+
+        let albumCoverArt = null;
+		let trackTitle = null;
+		let artist = null;
+
+		function wallpaperMediaPropertiesListener(event) {
+			// Update title and artist labels
+			trackTitle.textContent = event.title;
+			artist.textContent = event.artist;
+		}
+
+		function wallpaperMediaThumbnailListener(event) {
+			// Update album cover art
+			albumCoverArt.src = event.thumbnail;
+			document.body.style['background-color'] = event.primaryColor;
+			
+		}
+
+		// Find all required elements
+		albumCoverArt = document.getElementById('albumCoverArt');
+		trackTitle = document.getElementById('trackTitle');
+		artist = document.getElementById('artist');
+
+		// Register the media property listener provided by Wallpaper Engine.
+		window.wallpaperRegisterMediaPropertiesListener(wallpaperMediaPropertiesListener);
+
+		// Register the media thumbnail listener provided by Wallpaper Engine.
+		window.wallpaperRegisterMediaThumbnailListener(wallpaperMediaThumbnailListener);
+		
+    </script>
+</body>
+</html>
